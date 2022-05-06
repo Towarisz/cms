@@ -1,9 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
-import {
-  NgbCarousel,
-  NgbSlideEvent,
-  NgbSlideEventSource,
-} from '@ng-bootstrap/ng-bootstrap';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-home-page',
@@ -12,11 +7,15 @@ import {
 })
 export class HomePageComponent {
   images = [944, 1011, 984].map(
-    (n) => `https://picsum.photos/id/${n}/2000/500`
+    (n) => `https://picsum.photos/id/${n}/1900/500`
   );
 
   newsList: Array<any>;
   constructor() {
-    this.newsList = [{ title: 'tak', content: 'XDXD' }];
+    this.newsList = [
+      { title: 'tak', content: 'XDXD' },
+      { title: 'tak', content: 'XDXD' },
+      { title: 'tak', content: 'XDXD' },
+    ];
   }
 }

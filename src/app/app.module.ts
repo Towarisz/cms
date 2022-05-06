@@ -13,6 +13,7 @@ import { AboutPageComponent } from './about-page/about-page.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { NewsComponent } from './news/news.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { NewsComponent } from './news/news.component';
     ]),
     MatButtonModule,
     MatCardModule,
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

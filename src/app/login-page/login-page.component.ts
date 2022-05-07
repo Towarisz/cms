@@ -19,12 +19,14 @@ export class LoginPageComponent {
       this.pageType = params['id'];
       this.pageType == 0
         ? (this.buttonText = 'sign up')
-        : (this.buttonText = 'login');
+        : (this.buttonText = 'sign in');
     });
   }
 
   send(event: any) {
     event.preventDefault();
+    //logowanie + server side
     this.userInfo.login = 1;
+    sessionStorage.setItem('user', '1');
   }
 }

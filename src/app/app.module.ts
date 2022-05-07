@@ -1,3 +1,4 @@
+import { GaleryDataService } from './galery-data.service';
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -20,6 +21,7 @@ import { MatInputModule } from '@angular/material/input';
 import { ContentCardComponent } from './content-card/content-card.component';
 import { GaleryPageComponent } from './galery-page/galery-page.component';
 import { UserInfoService } from './user-info.service';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -50,8 +52,9 @@ import { UserInfoService } from './user-info.service';
     MatFormFieldModule,
     FormsModule,
     MatInputModule,
+    MatPaginatorModule,
   ],
-  providers: [UserInfoService],
+  providers: [UserInfoService, GaleryDataService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

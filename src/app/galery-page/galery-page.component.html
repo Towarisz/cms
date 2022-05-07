@@ -1,1 +1,9 @@
-<p>galery-page works!</p>
+<mat-paginator
+  #paginator
+  [length]="length"
+  [pageIndex]="pageIndex"
+  [pageSize]="pageSize"
+  [pageSizeOptions]="[3, 6, 9, 15]"
+  (page)="getServerData(pageIndex, pageSize)"
+>
+</mat-paginator>

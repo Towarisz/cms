@@ -8,7 +8,6 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomePageComponent } from './home-page/home-page.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
-import { FaqPageComponent } from './faq-page/faq-page.component';
 import { AboutPageComponent } from './about-page/about-page.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -24,19 +23,20 @@ import { UserInfoService } from './user-info.service';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { HttpClientModule } from '@angular/common/http';
 import { GaleryImgComponent } from './galery-img/galery-img.component';
+import { NewsPageComponent } from './news-page/news-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
     NavBarComponent,
-    FaqPageComponent,
     AboutPageComponent,
     NewsComponent,
     LoginPageComponent,
     ContentCardComponent,
     GaleryPageComponent,
     GaleryImgComponent,
+    NewsPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,7 +45,7 @@ import { GaleryImgComponent } from './galery-img/galery-img.component';
     RouterModule.forRoot([
       { path: '', component: HomePageComponent },
       { path: 'galery', component: GaleryPageComponent },
-      { path: 'faq', component: FaqPageComponent },
+      { path: 'news', component: NewsPageComponent },
       { path: 'login/:id', component: LoginPageComponent },
       { path: 'about', component: AboutPageComponent },
     ]),

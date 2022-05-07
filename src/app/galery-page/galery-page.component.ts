@@ -31,7 +31,6 @@ export class GaleryPageComponent implements OnInit {
     this.galeryData.getData(_pageIndex, _pageSize).subscribe(
       (response: any) => {
         if (response.error) {
-          // handle error
         } else {
           this.dataSource = response.data;
           this.length = response.length;

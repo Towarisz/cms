@@ -8,16 +8,16 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class LoginPageComponent {
   @Input() pass: any;
-  @Input() mail: any;
+  @Input() userN: any;
   buttonText: string | undefined;
   pageType: number | undefined;
   constructor(private route: ActivatedRoute) {
     this.pass = '';
-    this.mail = '';
+    this.userN = '';
     this.route.params.subscribe((params: any) => {
       this.pageType = params['id'];
       this.pageType == 0
-        ? (this.buttonText = 'register')
+        ? (this.buttonText = 'sign up')
         : (this.buttonText = 'login');
     });
   }

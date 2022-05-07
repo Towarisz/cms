@@ -11,11 +11,19 @@ export class HomePageComponent {
   );
 
   newsList: Array<any>;
+  cardList: Array<any>;
   constructor() {
     this.newsList = [
       { title: 'tak', content: 'XDXD' },
       { title: 'tak', content: 'XDXD' },
       { title: 'tak', content: 'XDXD' },
+    ];
+    this.cardList = [
+      {
+        title: 'tak',
+        content: 'XDXD',
+        img: 'https://picsum.photos/id/255/500',
+      },
     ];
   }
 }

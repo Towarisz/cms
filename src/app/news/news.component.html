@@ -5,10 +5,18 @@
   </p>
   <div class="d-flex justify-content-between align-items-center">
     <div class="btn-group">
-      <button type="button" class="btn btn-sm btn-outline-secondary">
+      <button
+        type="button"
+        class="btn btn-sm btn-outline-secondary"
+        [disabled]="userInfo.login == 0"
+      >
         View
       </button>
-      <button type="button" class="btn btn-sm btn-outline-secondary">
+      <button
+        type="button"
+        class="btn btn-sm btn-outline-secondary"
+        *ngIf="userInfo.login == 2"
+      >
         Edit
       </button>
     </div>

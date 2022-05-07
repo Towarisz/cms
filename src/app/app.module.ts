@@ -19,6 +19,7 @@ import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { ContentCardComponent } from './content-card/content-card.component';
 import { GaleryPageComponent } from './galery-page/galery-page.component';
+import { UserInfoService } from './user-info.service';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,7 @@ import { GaleryPageComponent } from './galery-page/galery-page.component';
     FormsModule,
     MatInputModule,
   ],
-  providers: [],
+  providers: [UserInfoService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

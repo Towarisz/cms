@@ -1,3 +1,4 @@
+import { UserInfoService } from './../user-info.service';
 import { Component, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
@@ -11,7 +12,7 @@ export class LoginPageComponent {
   @Input() userN: any;
   buttonText: string | undefined;
   pageType: number | undefined;
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute, public userInfo: UserInfoService) {
     this.pass = '';
     this.userN = '';
     this.route.params.subscribe((params: any) => {
@@ -24,5 +25,6 @@ export class LoginPageComponent {
 
   send(event: any) {
     event.preventDefault();
+    this.userInfo.login = 1;
   }
 }

@@ -14,6 +14,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { NewsComponent } from './news/news.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { LoginPageComponent } from './login-page/login-page.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -24,6 +28,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     FaqPageComponent,
     AboutPageComponent,
     NewsComponent,
+    LoginPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,11 +38,15 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
       { path: '', component: HomePageComponent },
       { path: 'price', component: PricePageComponent },
       { path: 'faq', component: FaqPageComponent },
+      { path: 'login/:id', component: LoginPageComponent },
       { path: 'about', component: AboutPageComponent },
     ]),
     MatButtonModule,
     MatCardModule,
     NgbModule,
+    MatFormFieldModule,
+    FormsModule,
+    MatInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

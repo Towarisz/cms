@@ -1,0 +1,19 @@
+<form name="loginForm" class="login" #form="ngForm" autocomplete="off">
+  <mat-form-field class="example-form-field" appearance="fill">
+    <mat-label>Email</mat-label>
+    <input matInput type="text" [(ngModel)]="mail" name="mail" required />
+  </mat-form-field>
+  <mat-form-field class="example-form-field" appearance="fill">
+    <mat-label>Hasło</mat-label>
+    <input matInput type="password" [(ngModel)]="pass" name="pass" required />
+  </mat-form-field>
+  <button
+    mat-flat-button
+    color="primary"
+    type="submit"
+    (click)="send($event)"
+    [disabled]="!form.valid"
+  >
+    {{ buttonText }}
+  </button>
+</form>

@@ -22,6 +22,8 @@ import { ContentCardComponent } from './content-card/content-card.component';
 import { GaleryPageComponent } from './galery-page/galery-page.component';
 import { UserInfoService } from './user-info.service';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { HttpClientModule } from '@angular/common/http';
+import { GaleryImgComponent } from './galery-img/galery-img.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     LoginPageComponent,
     ContentCardComponent,
     GaleryPageComponent,
+    GaleryImgComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,6 +56,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     FormsModule,
     MatInputModule,
     MatPaginatorModule,
+    HttpClientModule,
   ],
   providers: [UserInfoService, GaleryDataService],
   bootstrap: [AppComponent],

@@ -18,24 +18,28 @@ export class GaleryPageComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getServerData(1, 3);
+    this.getServerData();
   }
 
-  public getServerData(page: number, count: number) {
-    // this.galeryData.getData(page, count).subscribe(
-    //   (response: any) => {
-    //     if (response.error) {
-    //       // handle error
-    //     } else {
-    //       this.dataSource = response.data;
-    //       this.length = response.length;
-    //       this.pageIndex = page;
-    //       this.pageSize = count;
-    //     }
-    //   },
-    //   (error: any) => {
-    //     console.log(error);
-    //   }
-    // );
+  public getServerData(event?: any) {
+    let _pageIndex = 0;
+    let _pageSize = 3;
+    if (event) {
+      _pageIndex = event.pageIndex;
+      _pageSize = event.pageSize;
+    }
+    this.galeryData.getData(_pageIndex, _pageSize).subscribe(
+      (response: any) => {
+        if (response.error) {
+          // handle error
+        } else {
+          this.dataSource = response.data;
+          this.length = response.length;
+        }
+      },
+      (error: any) => {
+        console.log(error);
+      }
+    );
   }
 }

@@ -1,11 +1,14 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
 })
 export class GaleryDataService {
-  constructor() {}
+  constructor(private httpClient: HttpClient) {}
   getData(page: number, count: number) {
-    return;
+    return this.httpClient.post(' http://127.0.0.1:5000/galeryData', {
+      params: { page: page, count: count },
+    });
   }
 }

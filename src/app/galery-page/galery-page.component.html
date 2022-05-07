@@ -1,9 +1,10 @@
+<app-galery-img *ngFor="let img of dataSource" [data]="img"></app-galery-img>
 <mat-paginator
   #paginator
   [length]="length"
   [pageIndex]="pageIndex"
   [pageSize]="pageSize"
   [pageSizeOptions]="[3, 6, 9, 15]"
-  (page)="getServerData(pageIndex, pageSize)"
+  (page)="getServerData($event)"
 >
 </mat-paginator>

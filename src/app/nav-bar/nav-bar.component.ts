@@ -1,12 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { UserInfoService } from './../user-info.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-nav-bar',
   templateUrl: './nav-bar.component.html',
   styleUrls: ['./nav-bar.component.scss'],
 })
-export class NavBarComponent implements OnInit {
-  constructor() {}
+export class NavBarComponent {
+  constructor(public userInfo: UserInfoService) {}
 
-  ngOnInit(): void {}
+  logOut() {
+    this.userInfo.login = 0;
+    sessionStorage.setItem('user', '0');
+  }
 }

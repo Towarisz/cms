@@ -9,7 +9,5 @@ export class GaleryImgComponent implements OnInit {
   @Input() data: any;
   constructor() {}
 
-  ngOnInit(): void {
-    console.log(this.data);
-  }
+  ngOnInit(): void {}
 }

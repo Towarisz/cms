@@ -1,6 +1,6 @@
 import { UserInfoService } from './../user-info.service';
 import { Component, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-page',
@@ -10,9 +10,14 @@ import { ActivatedRoute } from '@angular/router';
 export class LoginPageComponent {
   @Input() pass: any;
   @Input() userN: any;
+  error = false;
   buttonText: string | undefined;
   pageType: number | undefined;
-  constructor(private route: ActivatedRoute, public userInfo: UserInfoService) {
+  constructor(
+    private route: ActivatedRoute,
+    public userInfo: UserInfoService,
+    private router: Router
+  ) {
     this.pass = '';
     this.userN = '';
     this.route.params.subscribe((params: any) => {
@@ -25,8 +30,26 @@ export class LoginPageComponent {
 
   send(event: any) {
     event.preventDefault();
-    //logowanie + server side
-    this.userInfo.login = 1;
-    sessionStorage.setItem('user', '1');
+    this.pageType == 0
+      ? this.userInfo
+          .register(this.userN, this.pass)
+          .subscribe((response: any) => {
+            this.error = false;
+            this.userInfo.login = response.value;
+            sessionStorage.setItem('user', response.value);
+            this.router.navigate(['']);
+          })
+      : this.userInfo
+          .loginRequest(this.userN, this.pass)
+          .subscribe((response: any) => {
+            if (response.value != '-1') {
+              this.error = false;
+              this.userInfo.login = response.value;
+              sessionStorage.setItem('user', response.value);
+              this.router.navigate(['']);
+            } else {
+              this.error = true;
+            }
+          });
   }
 }

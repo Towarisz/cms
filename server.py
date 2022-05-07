@@ -1,4 +1,3 @@
-from cv2 import log
 from flask import Flask, render_template, request
 from tinydb import TinyDB, Query
 
@@ -25,6 +24,22 @@ def galeryData():
     count = int(data["params"]["count"])
     _response = galeryDb.all()
     return {"data":_response[page*count:page*count+count],"length":galeryDb.count(lambda x:x)}
+
+@app.route("/login",methods=['POST'])
+def login():
+    data = request.get_json()
+    USER = Query()
+    user = userDb.get((USER["login"] == data["params"]["login"]) & (USER["pass"] == data["params"]["pass"]))
+    if user != None:
+        return user
+    else:
+        return {"value":-1}
+
+@app.route("/register",methods=["POST"])
+def register():
+    data = request.get_json()
+    userDb.insert({"login":data["params"]["login"],"pass":data["params"]["pass"],"value":"1"})
+    return True
 
 if __name__ == '__main__':
     app.run(debug=True)

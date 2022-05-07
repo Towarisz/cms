@@ -1,0 +1,6 @@
+{
+  "_default": {
+    "1": { "login": "aaa", "pass": "aaa", "value": "1" },
+    "2": { "login": "admin", "pass": "admin", "value": "2" }
+  }
+}

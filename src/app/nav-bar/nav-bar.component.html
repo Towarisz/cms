@@ -10,10 +10,28 @@
   <a routerLink="about" routerLinkActive="active">About</a>
 </span>
 <div>
-  <button mat-raised-button color="primary" routerLink="login/1">
+  <button
+    mat-raised-button
+    color="primary"
+    routerLink="login/1"
+    *ngIf="userInfo.login == 0"
+  >
     Zaloguj
   </button>
-  <button mat-stroked-button color="accent" routerLink="login/0">
+  <button
+    mat-stroked-button
+    color="accent"
+    routerLink="login/0"
+    *ngIf="userInfo.login == 0"
+  >
     Zarejestruj
+  </button>
+  <button
+    mat-stroked-button
+    color="accent"
+    *ngIf="userInfo.login != 0"
+    (click)="logOut()"
+  >
+    Wyloguj
   </button>
 </div>

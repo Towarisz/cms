@@ -50,7 +50,10 @@ export class GaleryPageComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      console.log(`Dialog result: ${result}`);
+      if (result != undefined) {
+        console.log('dziala');
+        this.galeryData.addData(result.link).subscribe(() => {});
+      }
     });
   }
 }

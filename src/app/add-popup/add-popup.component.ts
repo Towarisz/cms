@@ -17,6 +17,7 @@ export class AddPopupComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+
   onNoClick(): void {
     this.dialogRef.close();
   }

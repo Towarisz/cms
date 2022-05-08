@@ -3,7 +3,7 @@
   [data]="img"
   (delete)="deletePost(img.id)"
 ></app-galery-img>
-<div (click)="addImg()" *ngIf="userInfo.login == 2">Dodaj obraz</div>
+<button mat-raised-button (click)="addImg()" *ngIf="userInfo.login == 2">Dodaj obraz</button>
 <mat-paginator
   #paginator
   [length]="length"

@@ -24,7 +24,9 @@
 <div class="news">
   <app-news *ngFor="let news of newsList" [list]="news"></app-news>
 </div>
+<hr/>
 <app-content-card
   *ngFor="let card of cardList"
   [card]="card"
 ></app-content-card>
+<hr/>

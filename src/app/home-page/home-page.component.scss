@@ -1,18 +1,25 @@
 .imgTitle{
   letter-spacing: 1px;
   font-weight: bolder;
-  color: rgb(10, 192, 238);
+  color: whitesmoke;
+}
+.imgContent{
+  color: whitesmoke;
 }
 button{ 
-
+  background-color: rgb(167, 39, 39);
   margin-left: 8px;
+  color: whitesmoke;
 }
-
 .news{
   display: flex;
  justify-content: space-evenly;
 }
-
 .carusel {
   margin-top: 10px;
+}
+
+app-content-card{
+  text-align: center; 
+  margin: 10px;
 }

@@ -10,7 +10,6 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomePageComponent } from './home-page/home-page.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
-import { AboutPageComponent } from './about-page/about-page.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { NewsComponent } from './news/news.component';
@@ -35,7 +34,6 @@ import { ShortenContentPipe } from './shorten-content.pipe';
     AppComponent,
     HomePageComponent,
     NavBarComponent,
-    AboutPageComponent,
     NewsComponent,
     LoginPageComponent,
     ContentCardComponent,
@@ -54,7 +52,6 @@ import { ShortenContentPipe } from './shorten-content.pipe';
       { path: 'galery', component: GaleryPageComponent },
       { path: 'news', component: NewsPageComponent },
       { path: 'login/:id', component: LoginPageComponent },
-      { path: 'about', component: AboutPageComponent },
     ]),
     MatButtonModule,
     MatCardModule,

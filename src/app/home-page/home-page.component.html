@@ -5,9 +5,9 @@
         <img [src]="image.link" [alt]="image.title" />
       </div>
       <div class="carousel-caption">
-        <h3>{{ image.title }}</h3>
-        <p>{{ image.content }}</p>
-        <button (click)="delete(image.id)" *ngIf="userInfo.login == 2">
+        <h3 ngClass="imgTitle">{{ image.title }}</h3>
+        <p ngClass="imgContent">{{ image.content }}</p>
+        <button mat-raised-button (click)="delete(image.id)" *ngIf="userInfo.login == 2">
           Usuń
         </button>
         <button

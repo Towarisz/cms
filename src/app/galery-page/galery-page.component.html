@@ -1,7 +1,7 @@
 <app-galery-img
-  *ngFor="let img of dataSource; index as i"
+  *ngFor="let img of dataSource"
   [data]="img"
-  (delete)="deletePost(i + 1)"
+  (delete)="deletePost(img.id)"
 ></app-galery-img>
 <div (click)="addImg()" *ngIf="userInfo.login == 2">Dodaj obraz</div>
 <mat-paginator

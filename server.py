@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from tinydb import TinyDB, Query
+from tinydb import TinyDB,where
 
 userDb = TinyDB('userDb.json')
 galeryDb = TinyDB('galeryDb.json')
@@ -17,7 +17,10 @@ def index():
 @app.route("/addGaleryImg",methods=['POST'])
 def addGaleryImg():
     data = request.get_json()
-    galeryDb.insert({"link":data["params"]["link"]})
+    id = 0
+    if galeryDb.all():
+        id = galeryDb.all()[-1]['id']+1
+    galeryDb.insert({"link":data["params"]["link"],"id":id})
     return ""
 
 @app.route("/galeryData",methods=['POST'])
@@ -31,13 +34,18 @@ def galeryData():
 @app.route("/deleteGaleryImg",methods=['POST'])
 def deleteGaleryImg():
     data = request.get_json()
-    galeryDb.remove(doc_ids=[data["params"]["id"]])
+    galeryDb.remove(
+        where("id")==data["params"]["id"]
+        )
     return ""
 
 @app.route("/addBannerImg",methods=['POST'])
 def addBannerImg():
     data = request.get_json()
-    bannerDb.insert({"link":data["params"]["link"],"title":data["params"]["title"],"content":data["params"]["content"]})
+    id = 0
+    if bannerDb.all():
+        id = bannerDb.all()[-1]['id']+1
+    bannerDb.insert({"link":data["params"]["link"],"title":data["params"]["title"],"content":data["params"]["content"],"id":id})
     return ""
 
 @app.route("/bannerData",methods=['POST'])
@@ -48,13 +56,15 @@ def bannerData():
 @app.route("/deleteBannerImg",methods=['POST'])
 def deleteBannerImg():
     data = request.get_json()
-    bannerDb.remove(None,[data["params"]["id"]])
+    bannerDb.remove(where("id")==data["params"]["id"])
     return ""
 
 @app.route("/addNews",methods=['POST'])
 def addNews():
     data = request.get_json()
-    newsDb.insert({"title":data["params"]["title"],"content":data["params"]["content"]})
+    if newsDb.all():
+        id = newsDb.all()[-1]['id']+1
+    newsDb.insert({"title":data["params"]["title"],"content":data["params"]["content"],"id":id})
     return ""
 
 @app.route("/newsData",methods=['POST'])
@@ -70,14 +80,16 @@ def newsData():
 @app.route("/deleteNews",methods=['POST'])
 def deleteNews():
     data = request.get_json()['params']
-    newsDb.remove(None,[data["id"]])
-    return True
+    newsDb.remove(where("id")==data["params"]["id"])
+    return ""
 
 @app.route("/addCard",methods=['POST'])
 def addCard():
     data = request.get_json()['params']
-    cardDb.insert({"link":data["link"],"title":data["title"],"content":data["content"]})
-    return True
+    if cardDb.all():
+        id = cardDb.all()[-1]['id']+1
+    cardDb.insert({"link":data["link"],"title":data["title"],"content":data["content"],"id":id})
+    return ""
 
 @app.route("/cardData",methods=['POST'])
 def cardData():
@@ -87,14 +99,13 @@ def cardData():
 @app.route("/deleteCard",methods=['POST'])
 def deleteCard():
     data = request.get_json()["params"]
-    cardDb.remove(None,[data["id"]])
-    return True
+    cardDb.remove(where("id")==data["params"]["id"])
+    return ""
 
 @app.route("/login",methods=['POST'])
 def login():
     data = request.get_json()
-    USER = Query()
-    user = userDb.get((USER["login"] == data["params"]["login"]) & (USER["pass"] == data["params"]["pass"]))
+    user = userDb.get((where("login") == data["params"]["login"]) & (where("pass") == data["params"]["pass"]))
     if user != None:
         return user
     else:

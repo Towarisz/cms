@@ -59,17 +59,18 @@ export class GaleryPageComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result != undefined) {
-        console.log('dziala');
         this.galeryData.addData(result.link).subscribe(() => {
           this.getServerData();
         });
       }
     });
   }
+
   deletePost(index: number) {
-    console.log(this.pageSize * this.pageIndex + index);
-    this.galeryData.deletePost(index).subscribe(() => {
-      this.getServerData();
-    });
+    this.galeryData
+      .deletePost(this.pageSize * this.pageIndex + index)
+      .subscribe(() => {
+        this.getServerData();
+      });
   }
 }

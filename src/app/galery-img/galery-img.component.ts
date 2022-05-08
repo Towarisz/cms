@@ -1,4 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { UserInfoService } from './../user-info.service';
+import { Component, OnInit, Input, Output } from '@angular/core';
+import { EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-galery-img',
@@ -7,7 +9,14 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class GaleryImgComponent implements OnInit {
   @Input() data: any;
-  constructor() {}
+  @Input() index: any;
+  @Output()
+  delete = new EventEmitter();
+  constructor(public userInfo: UserInfoService) {}
 
   ngOnInit(): void {}
+
+  deletePost() {
+    this.delete.emit('delete');
+  }
 }

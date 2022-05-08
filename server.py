@@ -3,6 +3,9 @@ from tinydb import TinyDB, Query
 
 userDb = TinyDB('userDb.json')
 galeryDb = TinyDB('galeryDb.json')
+newsDb = TinyDB('newsDb.json')
+bannerDb = TinyDB('bannerDb.json')
+cardDb = TinyDB('cardDb.json')
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'Qwerty123!'
@@ -11,8 +14,8 @@ app.config['SECRET_KEY'] = 'Qwerty123!'
 def index():
     return render_template("index.html")
 
-@app.route("/addImg",methods=['POST'])
-def addImg():
+@app.route("/addGaleryImg",methods=['POST'])
+def addGaleryImg():
     data = request.get_json()
     galeryDb.insert({"link":data["link"]})
     return
@@ -24,6 +27,68 @@ def galeryData():
     count = int(data["params"]["count"])
     _response = galeryDb.all()
     return {"data":_response[page*count:page*count+count],"length":galeryDb.count(lambda x:x)}
+
+@app.route("/deleteGaleryImg",methods=['POST'])
+def deleteGaleryImg():
+    data = request.get_json()
+    galeryDb.remove(None,data["id"])
+    return
+
+@app.route("/addBannerImg",methods=['POST'])
+def addBannerImg():
+    data = request.get_json()
+    bannerDb.insert({"link":data["link"],"title":data["title"],"content":data["content"]})
+    return
+
+@app.route("/bannerData",methods=['POST'])
+def bannerData():
+    _response = bannerDb.all()
+    return _response
+
+@app.route("/deleteBannerImg",methods=['POST'])
+def deleteBannerImg():
+    data = request.get_json()
+    bannerDb.remove(None,data["id"])
+    return
+
+@app.route("/addNews",methods=['POST'])
+def addNews():
+    data = request.get_json()
+    newsDb.insert({"title":data["title"],"content":data["content"]})
+    return
+
+@app.route("/newsData",methods=['POST'])
+def newsData():
+    data = request.get_json()
+    page = int(data["params"]["page"])
+    count = int(data["params"]["count"])
+    _response = newsDb.all()
+    _response.reverse()
+    return {"data":_response[page*count:page*count+count],"length":len(_response)}
+
+    
+@app.route("/deleteNews",methods=['POST'])
+def deleteNews():
+    data = request.get_json()
+    newsDb.remove(None,data["id"])
+    return
+
+@app.route("/addCard",methods=['POST'])
+def addCard():
+    data = request.get_json()
+    cardDb.insert({"link":data["link"],"title":data["title"],"content":data["content"]})
+    return
+
+@app.route("/cardData",methods=['POST'])
+def cardData():
+    _response = cardDb.all()
+    return {"data":_response}
+
+@app.route("/deleteCard",methods=['POST'])
+def deleteCard():
+    data = request.get_json()
+    cardDb.remove(None,data["id"])
+    return
 
 @app.route("/login",methods=['POST'])
 def login():

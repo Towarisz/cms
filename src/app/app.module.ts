@@ -1,3 +1,4 @@
+import { BannerDataService } from './banner-data.service';
 import { GaleryDataService } from './galery-data.service';
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
@@ -62,7 +63,7 @@ import { AddPopupComponent } from './add-popup/add-popup.component';
     HttpClientModule,
     MatDialogModule,
   ],
-  providers: [UserInfoService, GaleryDataService],
+  providers: [UserInfoService, GaleryDataService, BannerDataService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

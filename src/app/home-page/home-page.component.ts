@@ -1,3 +1,7 @@
+import { MatDialog } from '@angular/material/dialog';
+import { AddPopupComponent } from './../add-popup/add-popup.component';
+import { UserInfoService } from './../user-info.service';
+import { BannerDataService } from './../banner-data.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,13 +10,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./home-page.component.scss'],
 })
 export class HomePageComponent {
-  images = [944, 1011, 984].map(
-    (n) => `https://picsum.photos/id/${n}/1900/500`
-  );
-
-  newsList: Array<any>;
-  cardList: Array<any>;
-  constructor() {
+  bannerList: any;
+  newsList: any;
+  cardList: any;
+  constructor(
+    private bannerData: BannerDataService,
+    public userInfo: UserInfoService,
+    public dialog: MatDialog
+  ) {
+    this.loadBannerData();
     this.newsList = [
       { title: 'tak', content: 'XDXD' },
       { title: 'tak', content: 'XDXD' },
@@ -25,5 +31,30 @@ export class HomePageComponent {
         img: 'https://picsum.photos/id/255/500',
       },
     ];
+  }
+  addBanner() {
+    const dialogRef = this.dialog.open(AddPopupComponent, {
+      data: { title: 'Dodaj Obraz', type: 1 },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result != undefined) {
+        this.bannerData
+          .addData(result.title, result.content, result.link)
+          .subscribe(() => {
+            this.loadBannerData();
+          });
+      }
+    });
+  }
+  delete(id: any) {
+    this.bannerData.deletePost(id).subscribe(() => {
+      this.loadBannerData();
+    });
+  }
+  loadBannerData() {
+    this.bannerData.getData().subscribe((result: any) => {
+      this.bannerList = result.data;
+    });
   }
 }

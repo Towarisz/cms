@@ -51,7 +51,7 @@ def addBannerImg():
 @app.route("/bannerData",methods=['POST'])
 def bannerData():
     _response = bannerDb.all()
-    return _response
+    return {"data":_response}
 
 @app.route("/deleteBannerImg",methods=['POST'])
 def deleteBannerImg():

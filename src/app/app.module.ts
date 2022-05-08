@@ -28,6 +28,7 @@ import { GaleryImgComponent } from './galery-img/galery-img.component';
 import { NewsPageComponent } from './news-page/news-page.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { AddPopupComponent } from './add-popup/add-popup.component';
+import { ShortenContentPipe } from './shorten-content.pipe';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { AddPopupComponent } from './add-popup/add-popup.component';
     GaleryImgComponent,
     NewsPageComponent,
     AddPopupComponent,
+    ShortenContentPipe,
   ],
   imports: [
     BrowserModule,

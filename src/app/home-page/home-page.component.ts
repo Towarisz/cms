@@ -1,3 +1,4 @@
+import { NewsDataService } from './../news-data.service';
 import { MatDialog } from '@angular/material/dialog';
 import { AddPopupComponent } from './../add-popup/add-popup.component';
 import { UserInfoService } from './../user-info.service';
@@ -15,15 +16,12 @@ export class HomePageComponent {
   cardList: any;
   constructor(
     private bannerData: BannerDataService,
+    private newsData: NewsDataService,
     public userInfo: UserInfoService,
     public dialog: MatDialog
   ) {
     this.loadBannerData();
-    this.newsList = [
-      { title: 'tak', content: 'XDXD' },
-      { title: 'tak', content: 'XDXD' },
-      { title: 'tak', content: 'XDXD' },
-    ];
+    this.loadNewsData();
     this.cardList = [
       {
         title: 'tak',
@@ -55,6 +53,11 @@ export class HomePageComponent {
   loadBannerData() {
     this.bannerData.getData().subscribe((result: any) => {
       this.bannerList = result.data;
+    });
+  }
+  loadNewsData() {
+    this.newsData.getData(0, 3).subscribe((result: any) => {
+      this.newsList = result.data;
     });
   }
 }

@@ -1,4 +1,3 @@
-import { GaleryImgComponent } from './../galery-img/galery-img.component';
 import { UserInfoService } from './../user-info.service';
 import { AddPopupComponent } from './../add-popup/add-popup.component';
 import { GaleryDataService } from './../galery-data.service';

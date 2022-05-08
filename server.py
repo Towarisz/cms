@@ -31,13 +31,13 @@ def galeryData():
 @app.route("/deleteGaleryImg",methods=['POST'])
 def deleteGaleryImg():
     data = request.get_json()
-    galeryDb.remove(None,data["id"])
+    galeryDb.remove(doc_ids=[data["params"]["id"]])
     return ""
 
 @app.route("/addBannerImg",methods=['POST'])
 def addBannerImg():
     data = request.get_json()
-    bannerDb.insert({"link":data["link"],"title":data["title"],"content":data["content"]})
+    bannerDb.insert({"link":data["params"]["link"],"title":data["params"]["title"],"content":data["params"]["content"]})
     return ""
 
 @app.route("/bannerData",methods=['POST'])
@@ -48,13 +48,13 @@ def bannerData():
 @app.route("/deleteBannerImg",methods=['POST'])
 def deleteBannerImg():
     data = request.get_json()
-    bannerDb.remove(None,data["id"])
+    bannerDb.remove(None,[data["params"]["id"]])
     return ""
 
 @app.route("/addNews",methods=['POST'])
 def addNews():
     data = request.get_json()
-    newsDb.insert({"title":data["title"],"content":data["content"]})
+    newsDb.insert({"title":data["params"]["title"],"content":data["params"]["content"]})
     return ""
 
 @app.route("/newsData",methods=['POST'])
@@ -69,13 +69,13 @@ def newsData():
     
 @app.route("/deleteNews",methods=['POST'])
 def deleteNews():
-    data = request.get_json()
-    newsDb.remove(None,data["id"])
+    data = request.get_json()['params']
+    newsDb.remove(None,[data["id"]])
     return True
 
 @app.route("/addCard",methods=['POST'])
 def addCard():
-    data = request.get_json()
+    data = request.get_json()['params']
     cardDb.insert({"link":data["link"],"title":data["title"],"content":data["content"]})
     return True
 
@@ -86,8 +86,8 @@ def cardData():
 
 @app.route("/deleteCard",methods=['POST'])
 def deleteCard():
-    data = request.get_json()
-    cardDb.remove(None,data["id"])
+    data = request.get_json()["params"]
+    cardDb.remove(None,[data["id"]])
     return True
 
 @app.route("/login",methods=['POST'])

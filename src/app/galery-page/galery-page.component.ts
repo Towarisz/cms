@@ -21,7 +21,7 @@ export class GaleryPageComponent implements OnInit {
     public userInfo: UserInfoService
   ) {
     this.pageIndex = 0;
-    this.pageSize = 0;
+    this.pageSize = 3;
     this.length = 0;
   }
 
@@ -35,6 +35,8 @@ export class GaleryPageComponent implements OnInit {
     if (event) {
       _pageIndex = event.pageIndex;
       _pageSize = event.pageSize;
+      this.pageSize = event.pageSize;
+      this.pageIndex = event.pageIndex;
     }
     this.galeryData.getData(_pageIndex, _pageSize).subscribe(
       (response: any) => {
@@ -60,12 +62,14 @@ export class GaleryPageComponent implements OnInit {
         console.log('dziala');
         this.galeryData.addData(result.link).subscribe(() => {
           this.getServerData();
-          this.pageSize = 3;
         });
       }
     });
   }
   deletePost(index: number) {
-    console.log(index);
+    console.log(this.pageSize * this.pageIndex + index);
+    this.galeryData.deletePost(index).subscribe(() => {
+      this.getServerData();
+    });
   }
 }

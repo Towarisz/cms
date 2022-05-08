@@ -16,4 +16,9 @@ export class GaleryDataService {
       params: { link: data },
     });
   }
+  deletePost(data: any) {
+    return this.httpClient.post('http://127.0.0.1:5000/deleteGaleryImg', {
+      params: { id: data },
+    });
+  }
 }

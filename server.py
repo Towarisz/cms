@@ -18,7 +18,7 @@ def index():
 def addGaleryImg():
     data = request.get_json()
     galeryDb.insert({"link":data["params"]["link"]})
-    return True
+    return ""
 
 @app.route("/galeryData",methods=['POST'])
 def galeryData():
@@ -32,13 +32,13 @@ def galeryData():
 def deleteGaleryImg():
     data = request.get_json()
     galeryDb.remove(None,data["id"])
-    return True
+    return ""
 
 @app.route("/addBannerImg",methods=['POST'])
 def addBannerImg():
     data = request.get_json()
     bannerDb.insert({"link":data["link"],"title":data["title"],"content":data["content"]})
-    return True
+    return ""
 
 @app.route("/bannerData",methods=['POST'])
 def bannerData():
@@ -49,13 +49,13 @@ def bannerData():
 def deleteBannerImg():
     data = request.get_json()
     bannerDb.remove(None,data["id"])
-    return True
+    return ""
 
 @app.route("/addNews",methods=['POST'])
 def addNews():
     data = request.get_json()
     newsDb.insert({"title":data["title"],"content":data["content"]})
-    return True
+    return ""
 
 @app.route("/newsData",methods=['POST'])
 def newsData():

@@ -1,3 +1,4 @@
+import { UserInfoService } from './../user-info.service';
 import { AddPopupComponent } from './../add-popup/add-popup.component';
 import { GaleryDataService } from './../galery-data.service';
 import { Component, OnInit } from '@angular/core';
@@ -13,7 +14,11 @@ export class GaleryPageComponent implements OnInit {
   pageIndex: number;
   pageSize: number;
   length: number;
-  constructor(public galeryData: GaleryDataService, public dialog: MatDialog) {
+  constructor(
+    public galeryData: GaleryDataService,
+    public dialog: MatDialog,
+    public userInfo: UserInfoService
+  ) {
     this.pageIndex = 0;
     this.pageSize = 0;
     this.length = 0;
@@ -52,7 +57,10 @@ export class GaleryPageComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result) => {
       if (result != undefined) {
         console.log('dziala');
-        this.galeryData.addData(result.link).subscribe(() => {});
+        this.galeryData.addData(result.link).subscribe(() => {
+          this.getServerData();
+          this.pageSize = 3;
+        });
       }
     });
   }

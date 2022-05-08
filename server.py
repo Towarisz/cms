@@ -62,6 +62,7 @@ def deleteBannerImg():
 @app.route("/addNews",methods=['POST'])
 def addNews():
     data = request.get_json()
+    id=0
     if newsDb.all():
         id = newsDb.all()[-1]['id']+1
     newsDb.insert({"title":data["params"]["title"],"content":data["params"]["content"],"id":id})
@@ -86,6 +87,7 @@ def deleteNews():
 @app.route("/addCard",methods=['POST'])
 def addCard():
     data = request.get_json()['params']
+    id=0
     if cardDb.all():
         id = cardDb.all()[-1]['id']+1
     cardDb.insert({"link":data["link"],"title":data["title"],"content":data["content"],"id":id})

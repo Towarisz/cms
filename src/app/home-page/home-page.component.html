@@ -17,8 +17,9 @@
     Dodaj Banner
   </button>
 </div>
-
-<app-news *ngFor="let news of newsList" [list]="news"></app-news>
+<div class="news">
+  <app-news *ngFor="let news of newsList" [list]="news"></app-news>
+</div>
 
 <app-content-card
   *ngFor="let card of cardList"

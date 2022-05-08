@@ -2,7 +2,7 @@
   <ngb-carousel>
     <ng-template ngbSlide *ngFor="let image of bannerList">
       <div class="picsum-img-wrapper">
-        <img [src]="image.link" alt="Random first slide" />
+        <img [src]="image.link" [alt]="image.title" />
       </div>
       <div class="carousel-caption">
         <h3>{{ image.title }}</h3>
@@ -10,12 +10,12 @@
         <button (click)="delete(image.id)" *ngIf="userInfo.login == 2">
           Usuń
         </button>
+        <button (click)="addBanner()" *ngIf="userInfo.login == 2">
+          Dodaj Banner
+        </button>
       </div>
     </ng-template>
   </ngb-carousel>
-  <button (click)="addBanner()" *ngIf="userInfo.login == 2">
-    Dodaj Banner
-  </button>
 </div>
 <div class="news">
   <app-news *ngFor="let news of newsList" [list]="news"></app-news>

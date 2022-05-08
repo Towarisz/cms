@@ -38,7 +38,7 @@ export class HomePageComponent {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      if (result != undefined) {
+      if (result != undefined && result.link != '') {
         this.bannerData
           .addData(result.title, result.content, result.link)
           .subscribe(() => {

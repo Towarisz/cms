@@ -2,15 +2,15 @@
 <div mat-dialog-content>
   <mat-form-field appearance="fill" *ngIf="data.type != 0">
     <mat-label>Tytuł</mat-label>
-    <input matInput [(ngModel)]="sendData.title" required/>
+    <input matInput [(ngModel)]="sendData.title" required />
   </mat-form-field>
   <mat-form-field appearance="fill" *ngIf="data.type != 0">
     <mat-label>Opis</mat-label>
-    <input matInput [(ngModel)]="sendData.content" required/>
+    <input matInput [(ngModel)]="sendData.content" required />
   </mat-form-field>
   <mat-form-field appearance="fill" *ngIf="data.type != 2">
     <mat-label>Link</mat-label>
-    <input matInput [(ngModel)]="sendData.link" required>
+    <input matInput [(ngModel)]="sendData.link" required />
   </mat-form-field>
 </div>
 <div mat-dialog-actions>

@@ -23,8 +23,8 @@ export class LoginPageComponent {
     this.route.params.subscribe((params: any) => {
       this.pageType = params['id'];
       this.pageType == 0
-        ? (this.buttonText = 'sign up')
-        : (this.buttonText = 'sign in');
+        ? (this.buttonText = 'Sign up')
+        : (this.buttonText = 'Sign in');
     });
   }
 

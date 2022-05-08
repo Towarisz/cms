@@ -1,0 +1,19 @@
+<h1 mat-dialog-title>{{ data.title }}</h1>
+<div mat-dialog-content>
+  <mat-form-field appearance="fill">
+    <mat-label>Tytuł</mat-label>
+    <input matInput [(ngModel)]="sendData.title" />
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Opis</mat-label>
+    <input matInput [(ngModel)]="sendData.content" />
+  </mat-form-field>
+  <mat-form-field appearance="fill" *ngIf="data.type == 0">
+    <mat-label>Link</mat-label>
+    <input matInput [(ngModel)]="sendData.link" />
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Anuluj</button>
+  <button mat-button [mat-dialog-close]="sendData" cdkFocusInitial>Ok</button>
+</div>

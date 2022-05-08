@@ -24,6 +24,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { HttpClientModule } from '@angular/common/http';
 import { GaleryImgComponent } from './galery-img/galery-img.component';
 import { NewsPageComponent } from './news-page/news-page.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { AddPopupComponent } from './add-popup/add-popup.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,7 @@ import { NewsPageComponent } from './news-page/news-page.component';
     GaleryPageComponent,
     GaleryImgComponent,
     NewsPageComponent,
+    AddPopupComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,6 +60,7 @@ import { NewsPageComponent } from './news-page/news-page.component';
     MatInputModule,
     MatPaginatorModule,
     HttpClientModule,
+    MatDialogModule,
   ],
   providers: [UserInfoService, GaleryDataService],
   bootstrap: [AppComponent],

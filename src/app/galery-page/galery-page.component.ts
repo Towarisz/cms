@@ -1,5 +1,7 @@
+import { AddPopupComponent } from './../add-popup/add-popup.component';
 import { GaleryDataService } from './../galery-data.service';
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-galery-page',
@@ -11,7 +13,7 @@ export class GaleryPageComponent implements OnInit {
   pageIndex: number;
   pageSize: number;
   length: number;
-  constructor(public galeryData: GaleryDataService) {
+  constructor(public galeryData: GaleryDataService, public dialog: MatDialog) {
     this.pageIndex = 0;
     this.pageSize = 0;
     this.length = 0;
@@ -40,5 +42,15 @@ export class GaleryPageComponent implements OnInit {
         console.log(error);
       }
     );
+  }
+
+  addImg() {
+    const dialogRef = this.dialog.open(AddPopupComponent, {
+      data: { title: 'Dodaj Obraz', type: 0 },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 }

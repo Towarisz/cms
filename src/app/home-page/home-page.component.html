@@ -5,17 +5,17 @@
         <img [src]="image.link" alt="Random first slide" />
       </div>
       <div class="carousel-caption">
-        <h3>{{ image.title }}</h3>
-        <p>{{ image.content }}</p>
-        <button (click)="delete(image.id)" *ngIf="userInfo.login == 2">
+        <h3 ngClass="imgTitle">{{ image.title }}</h3>
+        <p ngClass="imgContent">{{ image.content }}</p>
+        <button mat-raised-button (click)="delete(image.id)" *ngIf="userInfo.login == 2">
           Usuń
+        </button>
+        <button mat-raised-button (click)="addBanner()" *ngIf="userInfo.login == 2">
+          Dodaj
         </button>
       </div>
     </ng-template>
   </ngb-carousel>
-  <button (click)="addBanner()" *ngIf="userInfo.login == 2">
-    Dodaj Banner
-  </button>
 </div>
 <div class="news">
   <app-news *ngFor="let news of newsList" [list]="news"></app-news>

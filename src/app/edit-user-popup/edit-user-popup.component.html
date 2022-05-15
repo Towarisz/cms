@@ -1,13 +1,14 @@
 <div mat-dialog-content>
   <mat-form-field appearance="fill">
-    <mat-label>Tytuł</mat-label>
+    <mat-label>Login</mat-label>
     <input matInput [(ngModel)]="data.login" required />
   </mat-form-field>
   <mat-form-field appearance="fill">
-    <mat-label>Opis</mat-label>
+    <mat-label>Hasło</mat-label>
     <input matInput [(ngModel)]="data.pass" required />
   </mat-form-field>
   <mat-form-field appearance="fill">
+    <mat-label>Uprawnienia</mat-label>
     <mat-select [(ngModel)]="data.value" [(value)]="selected">
       <mat-option [value]="1"> Użytkownik </mat-option>
       <mat-option [value]="2"> Administrator </mat-option>

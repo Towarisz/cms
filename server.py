@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 from tinydb import TinyDB,where
+from tinydb.operations import set
 
 userDb = TinyDB('userDb.json')
 galeryDb = TinyDB('galeryDb.json')
@@ -122,9 +123,9 @@ def deleteUser():
 @app.route("/editUser",methods=['POST'])
 def edit():
     data = request.get_json()["params"]
-    userDb.update(set("login",data["login"]),where("id") == data["params"]["id"])
-    userDb.update(set("pass",data["pass"]),where("id") == data["params"]["id"])
-    userDb.update(set("value",data["value"]),where("id") == data["params"]["id"])
+    userDb.update(set("login",data["login"]),where("id") == data["id"])
+    userDb.update(set("pass",data["pass"]),where("id") == data["id"])
+    userDb.update(set("value",data["value"]),where("id") == data["id"])
     users = userDb.all()
     return {"data":users}
 

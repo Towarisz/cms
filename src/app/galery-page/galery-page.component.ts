@@ -53,7 +53,7 @@ export class GaleryPageComponent implements OnInit {
 
   addImg() {
     const dialogRef = this.dialog.open(AddPopupComponent, {
-      data: { title: 'Dodaj Obraz', type: 0 },
+      data: { title: 'DODAJ OBRAZ', type: 0 },
     });
 
     dialogRef.afterClosed().subscribe((result) => {

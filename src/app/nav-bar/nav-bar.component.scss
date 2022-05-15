@@ -6,19 +6,18 @@ a {
   text-decoration: none;
   font-size: 18px;
 }
-span {
+.leftNav {
   display: flex;
   justify-content: space-evenly;
   width: 70%;
   margin-top: 5px;
 }
-div {
+.rightNav {
   width: 30%;
   margin-top: 5px;
-  
 }
 
-button{
+.loginButton {
   line-height: 1.5;
   margin-right: 7px;
   font-size: 17px;

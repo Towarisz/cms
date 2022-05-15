@@ -28,6 +28,8 @@ import { NewsPageComponent } from './news-page/news-page.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { AddPopupComponent } from './add-popup/add-popup.component';
 import { ShortenContentPipe } from './shorten-content.pipe';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -62,6 +64,8 @@ import { ShortenContentPipe } from './shorten-content.pipe';
     MatPaginatorModule,
     HttpClientModule,
     MatDialogModule,
+    MatMenuModule,
+    MatIconModule,
   ],
   providers: [
     UserInfoService,

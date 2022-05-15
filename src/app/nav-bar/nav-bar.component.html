@@ -1,4 +1,4 @@
-<span>
+<span ngClass="leftNav">
   <a
     routerLink=""
     routerLinkActive="active"
@@ -8,12 +8,13 @@
   <a routerLink="galery" routerLinkActive="active">Galery</a>
   <a routerLink="news" routerLinkActive="active">News</a>
 </span>
-<div>
+<div ngClass="rightNav">
   <button
     mat-raised-button
     color="primary"
     routerLink="login/1"
     *ngIf="userInfo.login == 0"
+    ngClass="loginButton"
   >
     Zaloguj
   </button>
@@ -22,15 +23,30 @@
     color="accent"
     routerLink="login/0"
     *ngIf="userInfo.login == 0"
+    ngClass="loginButton"
   >
     Zarejestruj
   </button>
   <button
-    mat-stroked-button
-    color="accent"
+    mat-icon-button
+    [matMenuTriggerFor]="menu"
+    aria-label="Example icon-button with a menu"
     *ngIf="userInfo.login != 0"
-    (click)="logOut()"
   >
-    Wyloguj
+    <mat-icon>settings</mat-icon>
   </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item *ngIf="userInfo.login == 2">
+      <mat-icon>perm_identity</mat-icon>
+      <span>Zarządzaj urzytkownikami</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>palette</mat-icon>
+      <span>Ustaw motyw</span>
+    </button>
+    <button mat-menu-item (click)="logOut()">
+      <mat-icon>logout</mat-icon>
+      Wyloguj
+    </button>
+  </mat-menu>
 </div>

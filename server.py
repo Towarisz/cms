@@ -113,10 +113,30 @@ def login():
     else:
         return {"value":-1}
 
+@app.route("/deleteUser",methods=['POST'])
+def deleteUser():
+    data = request.get_json()
+    userDb.remove(where("id") == data["params"]["id"])
+    return ""
+
+@app.route("/editUser",methods=['POST'])
+def edit():
+    data = request.get_json()["params"]
+    userDb.update(set("login",data["login"]),where("id") == data["params"]["id"])
+    userDb.update(set("pass",data["pass"]),where("id") == data["params"]["id"])
+    userDb.update(set("value",data["value"]),where("id") == data["params"]["id"])
+    users = userDb.all()
+    return {"data":users}
+
+@app.route("/getUsers",methods=['POST'])
+def getUser():
+    users = userDb.all()
+    return {"data":users}
+
 @app.route("/register",methods=["POST"])
 def register():
     data = request.get_json()
-    userDb.insert({"login":data["params"]["login"],"pass":data["params"]["pass"],"value":"1"})
+    userDb.insert({"login":data["params"]["login"],"pass":data["params"]["pass"],"value":"1","id":userDb.all()[-1]["id"]+1})
     return True
 
 if __name__ == '__main__':

@@ -136,8 +136,10 @@ def getUser():
 @app.route("/register",methods=["POST"])
 def register():
     data = request.get_json()
-    userDb.insert({"login":data["params"]["login"],"pass":data["params"]["pass"],"value":"1","id":userDb.all()[-1]["id"]+1})
-    return True
+    if userDb.get(where("login")==data["params"]["login"]) == None:
+        userDb.insert({"login":data["params"]["login"],"pass":data["params"]["pass"],"value":"1","id":int(userDb.all()[-1]["id"])+1})
+        return "1"
+    return "0"
 
 if __name__ == '__main__':
     app.run(debug=True)

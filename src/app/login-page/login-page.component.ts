@@ -34,10 +34,14 @@ export class LoginPageComponent {
       ? this.userInfo
           .register(this.userN, this.pass)
           .subscribe((response: any) => {
-            this.error = false;
-            this.userInfo.login = response.value;
-            sessionStorage.setItem('user', response.value);
-            this.router.navigate(['']);
+            if (response == 1) {
+              this.error = false;
+              this.userInfo.login = response.value;
+              sessionStorage.setItem('user', response.value);
+              this.router.navigate(['']);
+            } else {
+              this.error = true;
+            }
           })
       : this.userInfo
           .loginRequest(this.userN, this.pass)

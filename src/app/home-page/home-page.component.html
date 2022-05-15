@@ -29,16 +29,8 @@
   <app-news *ngFor="let news of newsList" [list]="news"></app-news>
 </div>
 <hr />
-<app-content-card *ngFor="let card of cardList" [card]="card"
-  ><button
-    mat-raised-button
-    (click)="deleteCard(card.id)"
-    *ngIf="userInfo.login == 2"
-  >
-    Usuń
-  </button>
-</app-content-card>
-<button mat-raised-button (click)="addCard()" *ngIf="userInfo.login == 2">
-  Dodaj
-</button>
+<app-content-card
+  *ngFor="let card of cardList"
+  [card]="card"
+></app-content-card>
 <hr />

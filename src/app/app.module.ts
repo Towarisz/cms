@@ -32,6 +32,9 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { UserListPageComponent } from './user-list-page/user-list-page.component';
 import { MatTableModule } from '@angular/material/table';
+import { UserPermitionPipe } from './user-permition.pipe';
+import { EditUserPopupComponent } from './edit-user-popup/edit-user-popup.component';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -47,6 +50,8 @@ import { MatTableModule } from '@angular/material/table';
     AddPopupComponent,
     ShortenContentPipe,
     UserListPageComponent,
+    UserPermitionPipe,
+    EditUserPopupComponent,
   ],
   imports: [
     BrowserModule,
@@ -71,6 +76,7 @@ import { MatTableModule } from '@angular/material/table';
     MatMenuModule,
     MatIconModule,
     MatTableModule,
+    MatSelectModule,
   ],
   providers: [
     UserInfoService,

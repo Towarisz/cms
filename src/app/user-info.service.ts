@@ -29,4 +29,9 @@ export class UserInfoService {
       params: { id: id },
     });
   }
+  editUser(login: string, pass: string, value: string, id: string) {
+    return this.http.post('http://127.0.0.1:5000/editUser', {
+      params: { login: login, pass: pass, value: value, id: id },
+    });
+  }
 }

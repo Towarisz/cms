@@ -7,7 +7,11 @@
       <div class="carousel-caption">
         <h3 ngClass="imgTitle">{{ image.title }}</h3>
         <p ngClass="imgContent">{{ image.content }}</p>
-        <button mat-raised-button (click)="delete(image.id)" *ngIf="userInfo.login == 2">
+        <button
+          mat-raised-button
+          (click)="deletePost(image.id)"
+          *ngIf="userInfo.login == 2"
+        >
           Usuń
         </button>
         <button
@@ -24,9 +28,17 @@
 <div class="news">
   <app-news *ngFor="let news of newsList" [list]="news"></app-news>
 </div>
-<hr/>
-<app-content-card
-  *ngFor="let card of cardList"
-  [card]="card"
-></app-content-card>
-<hr/>
+<hr />
+<app-content-card *ngFor="let card of cardList" [card]="card"
+  ><button
+    mat-raised-button
+    (click)="deleteCard(card.id)"
+    *ngIf="userInfo.login == 2"
+  >
+    Usuń
+  </button>
+</app-content-card>
+<button mat-raised-button (click)="addCard()" *ngIf="userInfo.login == 2">
+  Dodaj
+</button>
+<hr />

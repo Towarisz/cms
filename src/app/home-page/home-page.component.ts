@@ -45,7 +45,7 @@ export class HomePageComponent {
       }
     });
   }
-  delete(id: any) {
+  deletePost(id: any) {
     this.bannerData.deletePost(id).subscribe(() => {
       this.loadBannerData();
     });
@@ -58,6 +58,26 @@ export class HomePageComponent {
   loadNewsData() {
     this.newsData.getData(0, 3).subscribe((result: any) => {
       this.newsList = result.data;
+    });
+  }
+  addCard() {
+    const dialogRef = this.dialog.open(AddPopupComponent, {
+      data: { title: 'Dodaj Obraz', type: 1 },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result != undefined && result.link != '') {
+        this.bannerData
+          .addData(result.title, result.content, result.link)
+          .subscribe(() => {
+            this.loadBannerData();
+          });
+      }
+    });
+  }
+  deleteCard(id: any) {
+    this.bannerData.deletePost(id).subscribe(() => {
+      this.loadBannerData();
     });
   }
 }

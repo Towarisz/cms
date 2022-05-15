@@ -9,7 +9,7 @@
   </mat-form-field>
   <mat-form-field appearance="fill">
     <mat-label>Uprawnienia</mat-label>
-    <mat-select [(ngModel)]="data.value" [(value)]="selected">
+    <mat-select [(value)]="data.value" [(ngModel)]="data.value">
       <mat-option [value]="1"> Użytkownik </mat-option>
       <mat-option [value]="2"> Administrator </mat-option>
     </mat-select>

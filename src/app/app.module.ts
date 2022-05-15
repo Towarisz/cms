@@ -30,6 +30,8 @@ import { AddPopupComponent } from './add-popup/add-popup.component';
 import { ShortenContentPipe } from './shorten-content.pipe';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
+import { UserListPageComponent } from './user-list-page/user-list-page.component';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -44,6 +46,7 @@ import { MatIconModule } from '@angular/material/icon';
     NewsPageComponent,
     AddPopupComponent,
     ShortenContentPipe,
+    UserListPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,6 +57,7 @@ import { MatIconModule } from '@angular/material/icon';
       { path: 'galery', component: GaleryPageComponent },
       { path: 'news', component: NewsPageComponent },
       { path: 'login/:id', component: LoginPageComponent },
+      { path: 'userList', component: UserListPageComponent },
     ]),
     MatButtonModule,
     MatCardModule,
@@ -66,6 +70,7 @@ import { MatIconModule } from '@angular/material/icon';
     MatDialogModule,
     MatMenuModule,
     MatIconModule,
+    MatTableModule,
   ],
   providers: [
     UserInfoService,

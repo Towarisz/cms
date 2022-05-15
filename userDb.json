@@ -1,6 +1,1 @@
-{
-  "_default": {
-    "1": { "login": "aaa", "pass": "aaa", "value": "1", "id": "0" },
-    "2": { "login": "admin", "pass": "admin", "value": "2", "id": "1" }
-  }
-}
+{"_default": {"2": {"login": "admin", "pass": "admin", "value": "2", "id": "1"}}}

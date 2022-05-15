@@ -20,4 +20,12 @@ export class UserInfoService {
       params: { login: login, pass: pass },
     });
   }
+  getUsers() {
+    return this.http.post('http://127.0.0.1:5000/getUsers', {});
+  }
+  deleteUser(id: string) {
+    return this.http.post('http://127.0.0.1:5000/deleteUser', {
+      params: { id: id },
+    });
+  }
 }

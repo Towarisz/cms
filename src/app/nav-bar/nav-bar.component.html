@@ -36,7 +36,7 @@
     <mat-icon>settings</mat-icon>
   </button>
   <mat-menu #menu="matMenu">
-    <button mat-menu-item *ngIf="userInfo.login == 2">
+    <button mat-menu-item *ngIf="userInfo.login == 2" routerLink="userList">
       <mat-icon>perm_identity</mat-icon>
       <span>Zarządzaj urzytkownikami</span>
     </button>

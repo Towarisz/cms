@@ -1,13 +1,17 @@
 table{
-    width: 400px;
+    width: 500px;
+    
 }
-th, td{
-    display: inline-table;
+th, td{ 
+    padding: 20px !important;
     margin-left: 10px;
 }
 .tabCenter{
     display: flex;
-    flex-direction: column;
+    width: 100%;
+    margin-top: 5%;
     justify-content: center;
 }
- 
+.butMarg{
+    margin-left: 5px;
+}

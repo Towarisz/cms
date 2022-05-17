@@ -1,15 +1,18 @@
-<app-galery-img
-  *ngFor="let img of dataSource"
-  [data]="img"
-  (delete)="deletePost(img.id)"
-></app-galery-img>
-<button mat-raised-button (click)="addImg()" *ngIf="userInfo.login == 2">Dodaj obraz</button>
-<mat-paginator
-  #paginator
-  [length]="length"
-  [pageIndex]="pageIndex"
-  [pageSize]="pageSize"
-  [pageSizeOptions]="[3, 6, 9, 15]"
-  (page)="getServerData($event)"
->
-</mat-paginator>
+<div ngClass="galeryPage">
+  <app-galery-img
+    *ngFor="let img of dataSource"
+    [data]="img"
+    (delete)="deletePost(img.id)"
+  ></app-galery-img>
+  </div>
+  <hr>
+  <button mat-raised-button (click)="addImg()" *ngIf="userInfo.login == 2">Dodaj obraz</button>
+  <mat-paginator
+    #paginator
+    [length]="length"
+    [pageIndex]="pageIndex"
+    [pageSize]="pageSize"
+    [pageSizeOptions]="[3, 6, 12, 14]"
+    (page)="getServerData($event)"
+  >
+  </mat-paginator>

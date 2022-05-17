@@ -41,8 +41,14 @@ testem.log
 .DS_Store
 Thumbs.db
 
+#Databases
 bannerDb.json
 cardDb.json
 contantDb.json
 galeryDb.json
 newsDb.json
+
+#ng
+ng
+ng.cmd
+ng.ps1

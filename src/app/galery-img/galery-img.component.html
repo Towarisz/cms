@@ -1,6 +1,4 @@
-<div>
-<img [src]="data.link" />
-<button mat-raised-button *ngIf="userInfo.login == 2" (click)="deletePost()">Delete post</button>
-<hr>
-</div>
-
+<div ngClass="galeryImg">
+    <img [src]="data.link" />
+    <button mat-raised-button *ngIf="userInfo.login == 2" (click)="deletePost()">Delete post</button>
+    </div>

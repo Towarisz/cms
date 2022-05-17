@@ -1,7 +1,10 @@
-app-galery-img{
+.galeryPage{
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: flex-start;
-    width: 300px;   
+    width: 100%; 
+    justify-content: center;
 }
 button{
     margin-left: 50%;

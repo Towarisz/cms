@@ -1,0 +1,13 @@
+table{
+    width: 400px;
+}
+th, td{
+    display: inline-table;
+    margin-left: 10px;
+}
+.tabCenter{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+ 

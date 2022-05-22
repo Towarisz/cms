@@ -2,12 +2,20 @@
   <div class="col-md-7">
     <h2 class="featurette-heading center">
       {{ card?.title }}
+      <button
+        mat-raised-button
+        *ngIf="userInfo.login == 2"
+        (click)="this.deletePost()"
+      >
+        Usuń
+      </button>
     </h2>
     <p class="lead">
       {{ card?.content }}
     </p>
   </div>
   <div class="col-md-5">
-    <img width="500" height="500" [src]="card?.img" />
+    <img width="500" height="500" [src]="card?.link" />
   </div>
 </div>
+<hr />

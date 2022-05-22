@@ -29,15 +29,11 @@ export class GaleryPageComponent implements OnInit {
   }
 
   public getServerData(event?: any) {
-    let _pageIndex = 0;
-    let _pageSize = 3;
     if (event) {
-      _pageIndex = event.pageIndex;
-      _pageSize = event.pageSize;
-      this.pageSize = event.pageSize;
       this.pageIndex = event.pageIndex;
+      this.pageSize = event.pageSize;
     }
-    this.galeryData.getData(_pageIndex, _pageSize).subscribe(
+    this.galeryData.getData(this.pageIndex, this.pageSize).subscribe(
       (response: any) => {
         if (response.error) {
         } else {

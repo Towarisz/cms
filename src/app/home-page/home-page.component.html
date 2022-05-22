@@ -32,5 +32,8 @@
 <app-content-card
   *ngFor="let card of cardList"
   [card]="card"
+  (reloadCardData)="this.loadCardData()"
 ></app-content-card>
-<hr />
+<button mat-raised-button (click)="this.addCard()" *ngIf="userInfo.login == 2">
+  Dodaj
+</button>

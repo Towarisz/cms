@@ -1,3 +1,4 @@
+import { CardDataService } from './../card-data.service';
 import { NewsDataService } from './../news-data.service';
 import { MatDialog } from '@angular/material/dialog';
 import { AddPopupComponent } from './../add-popup/add-popup.component';
@@ -17,18 +18,13 @@ export class HomePageComponent {
   constructor(
     private bannerData: BannerDataService,
     private newsData: NewsDataService,
+    private cardData: CardDataService,
     public userInfo: UserInfoService,
     public dialog: MatDialog
   ) {
     this.loadBannerData();
     this.loadNewsData();
-    this.cardList = [
-      {
-        title: 'tak',
-        content: 'XDXD',
-        img: 'https://picsum.photos/id/255/500',
-      },
-    ];
+    this.loadCardData();
   }
   addBanner() {
     const dialogRef = this.dialog.open(AddPopupComponent, {
@@ -60,24 +56,24 @@ export class HomePageComponent {
       this.newsList = result.data;
     });
   }
+  loadCardData() {
+    this.cardData.getData().subscribe((result: any) => {
+      this.cardList = result.data;
+    });
+  }
   addCard() {
     const dialogRef = this.dialog.open(AddPopupComponent, {
-      data: { title: 'Dodaj Obraz', type: 1 },
+      data: { title: 'Dodaj Karte', type: 1 },
     });
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result != undefined && result.link != '') {
-        this.bannerData
+        this.cardData
           .addData(result.title, result.content, result.link)
           .subscribe(() => {
-            this.loadBannerData();
+            this.loadCardData();
           });
       }
-    });
-  }
-  deleteCard(id: any) {
-    this.bannerData.deletePost(id).subscribe(() => {
-      this.loadBannerData();
     });
   }
 }

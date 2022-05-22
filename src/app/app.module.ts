@@ -35,6 +35,8 @@ import { MatTableModule } from '@angular/material/table';
 import { UserPermitionPipe } from './user-permition.pipe';
 import { EditUserPopupComponent } from './edit-user-popup/edit-user-popup.component';
 import { MatSelectModule } from '@angular/material/select';
+import { ThemePageComponent } from './theme-page/theme-page.component';
+import { CardDataService } from './card-data.service';
 
 @NgModule({
   declarations: [
@@ -52,6 +54,7 @@ import { MatSelectModule } from '@angular/material/select';
     UserListPageComponent,
     UserPermitionPipe,
     EditUserPopupComponent,
+    ThemePageComponent,
   ],
   imports: [
     BrowserModule,
@@ -63,6 +66,7 @@ import { MatSelectModule } from '@angular/material/select';
       { path: 'news', component: NewsPageComponent },
       { path: 'login/:id', component: LoginPageComponent },
       { path: 'userList', component: UserListPageComponent },
+      { path: 'theme', component: ThemePageComponent },
     ]),
     MatButtonModule,
     MatCardModule,
@@ -83,6 +87,7 @@ import { MatSelectModule } from '@angular/material/select';
     GaleryDataService,
     BannerDataService,
     NewsDataService,
+    CardDataService,
   ],
   bootstrap: [AppComponent],
 })

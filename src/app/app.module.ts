@@ -36,6 +36,7 @@ import { UserPermitionPipe } from './user-permition.pipe';
 import { EditUserPopupComponent } from './edit-user-popup/edit-user-popup.component';
 import { MatSelectModule } from '@angular/material/select';
 import { ThemePageComponent } from './theme-page/theme-page.component';
+import { CardDataService } from './card-data.service';
 
 @NgModule({
   declarations: [
@@ -86,6 +87,7 @@ import { ThemePageComponent } from './theme-page/theme-page.component';
     GaleryDataService,
     BannerDataService,
     NewsDataService,
+    CardDataService,
   ],
   bootstrap: [AppComponent],
 })

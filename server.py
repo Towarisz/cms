@@ -102,7 +102,7 @@ def cardData():
 @app.route("/deleteCard",methods=['POST'])
 def deleteCard():
     data = request.get_json()["params"]
-    cardDb.remove(where("id")==data["params"]["id"])
+    cardDb.remove(where("id")==data["id"])
     return ""
 
 @app.route("/login",methods=['POST'])

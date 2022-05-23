@@ -1,5 +1,5 @@
 import { UserInfoService } from './../user-info.service';
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-news',
@@ -8,5 +8,9 @@ import { Component, Input } from '@angular/core';
 })
 export class NewsComponent {
   @Input() list: { title: String; content: String } | undefined;
+  @Output() delete = new EventEmitter<string>();
   constructor(public userInfo: UserInfoService) {}
+  deletePost() {
+    this.delete.emit('delete');
+  }
 }

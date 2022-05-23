@@ -89,7 +89,7 @@ def editNews():
 @app.route("/deleteNews",methods=['POST'])
 def deleteNews():
     data = request.get_json()['params']
-    newsDb.remove(where("id")==data["params"]["id"])
+    newsDb.remove(where("id")==data["id"])
     return ""
 
 @app.route("/addCard",methods=['POST'])

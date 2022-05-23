@@ -2,7 +2,7 @@
   <ngb-carousel>
     <ng-template ngbSlide *ngFor="let image of bannerList">
       <div class="picsum-img-wrapper">
-        <img [src]="image.link" [alt]="image.title" ngClass="carouselImg"/>
+        <img [src]="image.link" [alt]="image.title" ngClass="carouselImg" />
       </div>
       <div class="carousel-caption">
         <h3 ngClass="imgTitle">{{ image.title }}</h3>
@@ -26,7 +26,11 @@
   </ngb-carousel>
 </div>
 <div class="news">
-  <app-news *ngFor="let news of newsList" [list]="news"></app-news>
+  <app-news
+    *ngFor="let news of newsList"
+    [list]="news"
+    (delete)="deleteNews(news.id)"
+  ></app-news>
 </div>
 <hr />
 <app-content-card
@@ -35,6 +39,11 @@
   (reloadCardData)="this.loadCardData()"
 ></app-content-card>
 <div ngClass="addCard">
-<button  mat-raised-button (click)="this.addCard()" *ngIf="userInfo.login == 2">
-  Dodaj
-</button></div>
+  <button
+    mat-raised-button
+    (click)="this.addCard()"
+    *ngIf="userInfo.login == 2"
+  >
+    Dodaj
+  </button>
+</div>

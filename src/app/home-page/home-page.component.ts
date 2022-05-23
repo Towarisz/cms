@@ -46,6 +46,11 @@ export class HomePageComponent {
       this.loadBannerData();
     });
   }
+  deleteNews(id: any) {
+    this.newsData.deletePost(id).subscribe(() => {
+      this.loadNewsData();
+    });
+  }
   loadBannerData() {
     this.bannerData.getData().subscribe((result: any) => {
       this.bannerList = result.data;

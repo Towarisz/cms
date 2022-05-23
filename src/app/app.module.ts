@@ -37,6 +37,7 @@ import { EditUserPopupComponent } from './edit-user-popup/edit-user-popup.compon
 import { MatSelectModule } from '@angular/material/select';
 import { ThemePageComponent } from './theme-page/theme-page.component';
 import { CardDataService } from './card-data.service';
+import { SingleNewsPageComponent } from './single-news-page/single-news-page.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { CardDataService } from './card-data.service';
     UserPermitionPipe,
     EditUserPopupComponent,
     ThemePageComponent,
+    SingleNewsPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -67,6 +69,7 @@ import { CardDataService } from './card-data.service';
       { path: 'login/:id', component: LoginPageComponent },
       { path: 'userList', component: UserListPageComponent },
       { path: 'theme', component: ThemePageComponent },
+      { path: 'singleNews', component: SingleNewsPageComponent },
     ]),
     MatButtonModule,
     MatCardModule,

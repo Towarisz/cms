@@ -78,6 +78,13 @@ def newsData():
     _response.reverse()
     return {"data":_response[page*count:page*count+count],"length":len(_response)}
 
+
+@app.route("/editNews",methods=['POST'])
+def editNews():
+    data = request.get_json()["params"]
+    userDb.update(set("title",data["title"]),where("id") == data["id"])
+    userDb.update(set("content",data["content"]),where("id") == data["id"])
+    return ""
     
 @app.route("/deleteNews",methods=['POST'])
 def deleteNews():
@@ -98,6 +105,8 @@ def addCard():
 def cardData():
     _response = cardDb.all()
     return {"data":_response}
+
+
 
 @app.route("/deleteCard",methods=['POST'])
 def deleteCard():

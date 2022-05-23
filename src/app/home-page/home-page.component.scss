@@ -17,9 +17,19 @@ button{
 }
 .carusel {
   margin-top: 10px;
+
 }
 
+.carouselImg{
+  width: 100%;
+  height: 500px;
+}
 app-content-card{
   text-align: center;
   margin: 10px;
+}
+.addCard{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 25px;
 }

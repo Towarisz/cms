@@ -2,7 +2,7 @@
 <div mat-dialog-content>
   <mat-form-field appearance="fill" *ngIf="data.type != 0">
     <mat-label>Tytuł</mat-label>
-    <input matInput [(ngModel)]="sendData.title" required />
+    <input matInput [(ngModel)]="sendData.title" required maxlength="32" />
   </mat-form-field>
   <mat-form-field appearance="fill" *ngIf="data.type != 0">
     <mat-label>Opis</mat-label>

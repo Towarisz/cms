@@ -1,6 +1,6 @@
 <div class="card-body">
- <h3>{{ list?.title }}</h3> 
- <hr>
+  <h3>{{ list?.title }}</h3>
+  <hr />
   <h4 class="card-text">
     {{ list?.content | shortenContent }}
   </h4>
@@ -10,6 +10,7 @@
         type="button"
         class="btn btn-sm btn-outline-secondary"
         [disabled]="userInfo.login == 0"
+        routerLink="singleNews"
       >
         View
       </button>
@@ -17,6 +18,7 @@
         type="button"
         class="btn btn-sm btn-outline-secondary"
         *ngIf="userInfo.login == 2"
+        routerLink="singleNews"
       >
         Edit
       </button>

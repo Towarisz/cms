@@ -3,6 +3,7 @@ import { AddPopupComponent } from './../add-popup/add-popup.component';
 import { GaleryDataService } from './../galery-data.service';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { ImgScalePopupComponent } from '../img-scale-popup/img-scale-popup.component';
 
 @Component({
   selector: 'app-galery-page',
@@ -67,5 +68,11 @@ export class GaleryPageComponent implements OnInit {
       .subscribe(() => {
         this.getServerData();
       });
+  }
+
+  scaleImg(link: string) {
+    this.dialog.open(ImgScalePopupComponent, {
+      data: { link: link },
+    });
   }
 }

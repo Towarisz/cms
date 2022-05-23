@@ -12,11 +12,16 @@ export class GaleryImgComponent implements OnInit {
   @Input() index: any;
   @Output()
   delete = new EventEmitter();
+  @Output()
+  scale = new EventEmitter();
   constructor(public userInfo: UserInfoService) {}
 
   ngOnInit(): void {}
 
   deletePost() {
     this.delete.emit('delete');
+  }
+  scaleImg() {
+    this.scale.emit('scale');
   }
 }

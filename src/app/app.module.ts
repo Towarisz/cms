@@ -38,6 +38,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { ThemePageComponent } from './theme-page/theme-page.component';
 import { CardDataService } from './card-data.service';
 import { SingleNewsPageComponent } from './single-news-page/single-news-page.component';
+import { ImgScalePopupComponent } from './img-scale-popup/img-scale-popup.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { SingleNewsPageComponent } from './single-news-page/single-news-page.com
     EditUserPopupComponent,
     ThemePageComponent,
     SingleNewsPageComponent,
+    ImgScalePopupComponent,
   ],
   imports: [
     BrowserModule,

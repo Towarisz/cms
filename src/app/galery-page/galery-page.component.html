@@ -3,16 +3,19 @@
     *ngFor="let img of dataSource"
     [data]="img"
     (delete)="deletePost(img.id)"
+    (scale)="scaleImg(img.link)"
   ></app-galery-img>
-  </div>
-  <hr>
-  <button mat-raised-button (click)="addImg()" *ngIf="userInfo.login == 2">Dodaj obraz</button>
-  <mat-paginator
-    #paginator
-    [length]="length"
-    [pageIndex]="pageIndex"
-    [pageSize]="pageSize"
-    [pageSizeOptions]="[3, 6, 12, 14]"
-    (page)="getServerData($event)"
-  >
-  </mat-paginator>
+</div>
+<hr />
+<button mat-raised-button (click)="addImg()" *ngIf="userInfo.login == 2">
+  Dodaj obraz
+</button>
+<mat-paginator
+  #paginator
+  [length]="length"
+  [pageIndex]="pageIndex"
+  [pageSize]="pageSize"
+  [pageSizeOptions]="[3, 6, 12, 14]"
+  (page)="getServerData($event)"
+>
+</mat-paginator>

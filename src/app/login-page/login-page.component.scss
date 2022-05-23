@@ -4,6 +4,7 @@ body{
 
 .centerDiv {
     display: flex;
+    flex-wrap: wrap;
     width: 100%;
     margin-top: 10%;
     justify-content: center;
@@ -19,3 +20,11 @@ body{
       width: 20%;
       left: 40%;
   }
+.redzik{
+    display: flex;
+    margin-top: 5px;
+    color: red;
+    justify-content: center;
+    font-weight: bolder;
+    font-size: larger;
+}

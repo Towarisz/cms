@@ -1,21 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
-
-*{}
+:root {
+  --background: white;
+  --font-color: black;
+}
 
 html,
 body {
   height: 100%;
   overflow-x: hidden;
-
 }
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-.theme{
-  background-color: rgb(44, 40, 40);
-  color:whitesmoke !important;
+.theme {
+  background-color: var(--background);
+  color: var(--font-color) !important;
 }
 
 /* Importing Bootstrap SCSS file. */

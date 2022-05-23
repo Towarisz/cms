@@ -69,7 +69,7 @@ import { SingleNewsPageComponent } from './single-news-page/single-news-page.com
       { path: 'login/:id', component: LoginPageComponent },
       { path: 'userList', component: UserListPageComponent },
       { path: 'theme', component: ThemePageComponent },
-      { path: 'singleNews', component: SingleNewsPageComponent },
+      { path: 'post', component: SingleNewsPageComponent },
     ]),
     MatButtonModule,
     MatCardModule,

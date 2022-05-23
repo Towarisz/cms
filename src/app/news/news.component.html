@@ -10,7 +10,7 @@
         type="button"
         class="btn btn-sm btn-outline-secondary"
         [disabled]="userInfo.login == 0"
-        routerLink="singleNews"
+        routerLink="post"
       >
         View
       </button>
@@ -18,7 +18,7 @@
         type="button"
         class="btn btn-sm btn-outline-secondary"
         *ngIf="userInfo.login == 2"
-        routerLink="singleNews"
+        routerLink="post"
       >
         Edit
       </button>

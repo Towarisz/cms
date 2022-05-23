@@ -1,14 +1,14 @@
 <div class="row featurette">
   <div class="col-md-7">
+    <button ngClass="doUsuwania"
+    mat-raised-button
+    *ngIf="userInfo.login == 2"
+    (click)="this.deletePost()"
+  >
+    Usuń
+  </button>
     <h2 class="featurette-heading center">
       {{ card?.title }}
-      <button
-        mat-raised-button
-        *ngIf="userInfo.login == 2"
-        (click)="this.deletePost()"
-      >
-        Usuń
-      </button>
     </h2>
     <p class="lead">
       {{ card?.content }}

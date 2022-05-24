@@ -37,8 +37,8 @@ import { EditUserPopupComponent } from './edit-user-popup/edit-user-popup.compon
 import { MatSelectModule } from '@angular/material/select';
 import { ThemePageComponent } from './theme-page/theme-page.component';
 import { CardDataService } from './card-data.service';
-import { SingleNewsPageComponent } from './single-news-page/single-news-page.component';
 import { ImgScalePopupComponent } from './img-scale-popup/img-scale-popup.component';
+import { ChangeThemeService } from './change-theme.service';
 
 @NgModule({
   declarations: [
@@ -57,7 +57,6 @@ import { ImgScalePopupComponent } from './img-scale-popup/img-scale-popup.compon
     UserPermitionPipe,
     EditUserPopupComponent,
     ThemePageComponent,
-    SingleNewsPageComponent,
     ImgScalePopupComponent,
   ],
   imports: [
@@ -71,7 +70,6 @@ import { ImgScalePopupComponent } from './img-scale-popup/img-scale-popup.compon
       { path: 'login/:id', component: LoginPageComponent },
       { path: 'userList', component: UserListPageComponent },
       { path: 'theme', component: ThemePageComponent },
-      { path: 'post', component: SingleNewsPageComponent },
     ]),
     MatButtonModule,
     MatCardModule,
@@ -93,6 +91,7 @@ import { ImgScalePopupComponent } from './img-scale-popup/img-scale-popup.compon
     BannerDataService,
     NewsDataService,
     CardDataService,
+    ChangeThemeService
   ],
   bootstrap: [AppComponent],
 })

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ChangeThemeService } from '../change-theme.service';
 
 @Component({
   selector: 'app-theme-page',
@@ -6,40 +7,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./theme-page.component.scss'],
 })
 export class ThemePageComponent {
-  rootElement: any;
   theme: number = 1;
-  constructor() {
-    this.rootElement = document.documentElement;
+  constructor(public changeTheme:ChangeThemeService) {
+    let _theme = window.localStorage.getItem("theme")
+    if(_theme){
+      this.theme = parseInt(_theme);      
+      this.setTheme()
+    }else{
+      window.localStorage.setItem("theme",this.theme.toString())
+    }
   }
 
-  setTheme() {
-    switch (this.theme) {
-      case 1:
-        this.rootElement.style.setProperty('--background', 'white');
-        this.rootElement.style.setProperty('--font-color', 'black');
-        this.rootElement.style.setProperty('--second-background', 'white');
-        this.rootElement.style.setProperty('--second-font-color', 'black');
-        break;
-      case 2:
-        this.rootElement.style.setProperty('--background', 'rgb(21, 24, 24)');
-        this.rootElement.style.setProperty('--font-color', 'whitesmoke');
-        this.rootElement.style.setProperty('--second-background', 'grey');
-        this.rootElement.style.setProperty('--second-font-color', 'black');
-        break;
-      case 3:
-        this.rootElement.style.setProperty('--background', 'rgb(44, 40, 40)');
-        this.rootElement.style.setProperty('--font-color', 'whitesmoke');
-        this.rootElement.style.setProperty('--second-background', 'grey');
-        this.rootElement.style.setProperty('--second-font-color', 'whitesmoke');
-        break;
-      case 4:
-        this.rootElement.style.setProperty('--background', 'rgb(44, 40, 40)');
-        this.rootElement.style.setProperty('--font-color', 'whitesmoke');
-        this.rootElement.style.setProperty('--second-background', 'white');
-        this.rootElement.style.setProperty('--second-font-color', 'black');
-        break;
-      default:
-        break;
-    }
+  setTheme(){
+    this.changeTheme.setTheme(this.theme)
+    window.localStorage.setItem("theme",this.theme.toString())
   }
 }

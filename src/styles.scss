@@ -2,6 +2,8 @@
 :root {
   --background: white;
   --font-color: black;
+  --second-background: white;
+  --second-font-color: black;
 }
 
 html,
@@ -17,6 +19,10 @@ body {
 .theme {
   background-color: var(--background);
   color: var(--font-color) !important;
+}
+.secondTheme{
+  background-color: var(--second-background);
+  color: var(--second-font-color) !important;
 }
 
 /* Importing Bootstrap SCSS file. */

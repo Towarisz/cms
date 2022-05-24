@@ -1,5 +1,6 @@
-<h1 mat-dialog-title>{{ data.title }}</h1>
-<div mat-dialog-content>
+<div ngClass="secondTheme">
+  <h1 mat-dialog-title>{{ data.title }}</h1>
+  <div mat-dialog-content>
   <mat-form-field appearance="fill" *ngIf="data.type != 0">
     <mat-label>Tytuł</mat-label>
     <input matInput [(ngModel)]="sendData.title" required maxlength="32" />
@@ -16,4 +17,5 @@
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()">Anuluj</button>
   <button mat-button [mat-dialog-close]="sendData" cdkFocusInitial>Ok</button>
+</div>
 </div>

@@ -1,6 +1,6 @@
 <div ngClass="center">
-  <div ngClass="XD40">
-    <mat-form-field>
+  <div ngClass="XD40 secondTheme">
+    <mat-form-field ngClass="secondTheme">
       <mat-label>Theme</mat-label>
       <mat-select
         [(ngModel)]="theme"
@@ -9,7 +9,8 @@
       >
         <mat-option [value]="1"> Light mode </mat-option>
         <mat-option [value]="2"> Dark mode </mat-option>
-        <mat-option [value]="3"> Custom mode </mat-option>
+        <mat-option [value]="3"> Night mode </mat-option>
+        <mat-option [value]="4"> Custom mode </mat-option>
       </mat-select>
     </mat-form-field>
   </div>

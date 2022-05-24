@@ -39,6 +39,7 @@ import { ThemePageComponent } from './theme-page/theme-page.component';
 import { CardDataService } from './card-data.service';
 import { ImgScalePopupComponent } from './img-scale-popup/img-scale-popup.component';
 import { ChangeThemeService } from './change-theme.service';
+import { ThemeEditPopupComponent } from './theme-edit-popup/theme-edit-popup.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { ChangeThemeService } from './change-theme.service';
     EditUserPopupComponent,
     ThemePageComponent,
     ImgScalePopupComponent,
+    ThemeEditPopupComponent,
   ],
   imports: [
     BrowserModule,
